@@ -11,7 +11,8 @@ export RUNNER_TOKEN=$(echo $payload | jq .token --raw-output)
     --url https://github.com/${GITHUB_OWNER}/${GITHUB_REPOSITORY} \
     --work ${RUNNER_WORKDIR} \
     --unattended \
-    --replace
+    --replace \
+    --labels ${RUNNER_LABELS}
 
 remove() {
     ./config.sh remove --unattended --token "${RUNNER_TOKEN}"
